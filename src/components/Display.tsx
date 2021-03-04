@@ -8,7 +8,7 @@ export type DisplayType = {
 export function Display(props: DisplayType) {
     return (
         <div className={"display"}>
-            <input className={props.value === 5? 'inputMax': 'input'} value={props.value}/>
+           <div className={props.value === 5? 'resultMax': 'result'} >{props.value}</div>
         </div>
     );
 }
