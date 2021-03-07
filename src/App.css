@@ -38,8 +38,9 @@
 }
 
 
-.wrapper {
-  margin: 0 auto;
+.main {
+  display: inline-block;
+  margin: 15px;
   width: 600px;
   height: 600px;
   border: aquamarine 5px solid;
@@ -51,7 +52,7 @@
   height: 300px;
   border: aquamarine 5px solid;
   border-radius: 15px;
-  background: aquamarine;
+  background: #282c34;
 }
 
 .result {
@@ -61,6 +62,7 @@
   width: 50px;
   text-align: center;
   font-size: 30px;
+  color: aquamarine;
 }
 
 .resultMax {
@@ -99,4 +101,39 @@
   margin-left: 210px;
   height: 80px;
   width: 120px;
+}
+
+.buttonSet {
+  display: block;
+  border: aquamarine 5px solid;
+  border-radius: 15px;
+  height: 80px;
+  width: 120px;
+  margin-top: 20px;
+  margin-left: 180px;
+
+}
+
+.maxValue {
+  font-size: 45px;
+  color: aquamarine;
+  margin-left: 40px;
+}
+
+.startValue {
+  margin-left: 40px;
+  font-size: 45px;
+  color: aquamarine;
+}
+
+.maxValue input {
+  height: 60px;
+  font-size: 30px;
+  text-align: center;
+}
+
+.startValue input {
+  height: 60px;
+  font-size: 30px;
+  text-align: center;
 }
