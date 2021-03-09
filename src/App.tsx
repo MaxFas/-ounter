@@ -2,51 +2,32 @@ import React, {useState} from 'react';
 import './App.css';
 import {Display} from "./components/Display";
 import {Buttons} from "./components/Buttons";
-import {ButtonSet} from "./components/ButtonSet";
-import {SetValues} from "./components/SetValues";
+import {Settings} from "./components/SettingsComponent";
 
 
 function App() {
     const [value, setValue] = useState<number>(0)
     let [maxValue, setMaxValue] = useState<number>(0)
     let [startValue, setStartValue] = useState<number>(0)
+    let [error, setError] = useState<string>('')
 
     function changeValue(newValue: number) {
-        if (newValue > 5) {
-            setValue(5)
-        }
-        if (newValue === 0) {
-            setValue(0)
-        } else {
-            setValue(newValue)
-        }
+        setValue(newValue)
     }
 
-
-    function findMaxValue(maxInputValue:number) {
-        maxValue = maxInputValue
-        setMaxValue(maxValue)
+    const setValues = (start: number, max: number) => {
+        setValue(start)
+        setMaxValue(max)
+        setStartValue(start)
     }
-
-    function findStartValue(firstInputValue:number) {
-        startValue = firstInputValue
-        setStartValue(startValue)
-    }
-
-
-    function changeSetValues(startValue: number) {
-        setValue(startValue)
-    }
-
     return (
 
         <div className={"wrapper"}>
             <div className={"main"}>
-                <SetValues findMaxValue={findMaxValue} findStartValue={findStartValue}/>
-                <ButtonSet startValue={startValue} changeSetValues={changeSetValues}/>
+              <Settings startValue={startValue} maxValue={maxValue} setValues={setValues} setError={setError}/>
             </div>
             <div className={"main"}>
-                <Display value={value} maxValue={maxValue}/>
+                <Display value={value} maxValue={maxValue} error={error}/>
                 <Buttons value={value} changeValue={changeValue} startValue={startValue} maxValue={maxValue}/>
             </div>
         </div>

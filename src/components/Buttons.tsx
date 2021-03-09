@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import '.././App.css';
 
 export type ButtonsType = {
@@ -9,6 +9,8 @@ export type ButtonsType = {
 }
 
 export function Buttons(props: ButtonsType) {
+
+
 
 
     return (

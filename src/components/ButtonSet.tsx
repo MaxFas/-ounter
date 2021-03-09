@@ -3,8 +3,7 @@ import '.././App.css';
 
 
 type ButtonSetType = {
-    changeSetValues: (startValue: number) => void
-    startValue: number
+    onClick: () => void
 }
 
 export function ButtonSet(props: ButtonSetType) {
@@ -13,7 +12,7 @@ export function ButtonSet(props: ButtonSetType) {
 
     return (
         <div className={'buttonsPanel'}>
-            <button className={'buttonSet'} onClick={()=> props.changeSetValues(props.startValue)}>SET</button>
+            <button className={'buttonSet'} onClick={props.onClick}>SET</button>
         </div>
     )
 }
