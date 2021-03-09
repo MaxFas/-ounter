@@ -15,6 +15,7 @@ function App() {
         setValue(newValue)
     }
 
+
     const setValues = (start: number, max: number) => {
         setValue(start)
         setMaxValue(max)
