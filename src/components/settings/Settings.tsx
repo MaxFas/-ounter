@@ -1,6 +1,6 @@
-import React, {FC, useState} from 'react'
-import {SetValues} from "./SetValues";
-import {ButtonSet} from "./ButtonSet";
+import React, { useState} from 'react'
+import {SetValues} from "./setValues/SetValues";
+import {ButtonSet} from "./button/ButtonSet";
 
 type PropsType = {
     startValue: number
@@ -9,7 +9,7 @@ type PropsType = {
     setError: (value: string) => void
 
 }
-export const Settings: FC<PropsType> = (props)=> {
+export const Settings = (props: PropsType)=> {
 
     let [max, setMax] = useState<number>(props.maxValue)
     let [min, setMin] = useState<number>(props.startValue)
@@ -27,9 +27,19 @@ export const Settings: FC<PropsType> = (props)=> {
         setMin(value)
     }
 
+    const handleChangeMax = (value: number) => {
+        if(value<0){
+            props.setError ('Incorrect value')
+        } else if (value === min) {
+            props.setError ('Incorrect value')
+        } else {
+            props.setError('')
+        } setMax(value)
+    }
+
 
     return <div>
-        <SetValues findMaxValue={setMax} findStartValue={handleChangeMin} startValue={min} maxValue={max}/>
+        <SetValues findMaxValue={handleChangeMax} findStartValue={handleChangeMin} startValue={min} maxValue={max}/>
         <ButtonSet onClick={setValues} />
     </div>
 }

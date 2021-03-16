@@ -1,5 +1,5 @@
 import React  from 'react';
-import '.././App.css';
+import '../../../App.css';
 
 export type SetValuesType = {
     findMaxValue: (maxInputValue: number) => void

@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import '.././App.css';
+import '../../../App.css';
 
 export type ButtonsType = {
     value: number
@@ -9,9 +9,6 @@ export type ButtonsType = {
 }
 
 export function Buttons(props: ButtonsType) {
-
-
-
 
     return (
         <div className={'buttonsPanel'}>
