@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, { useState} from 'react';
 import './App.css';
 import {Settings} from "./components/settings/Settings";
 import {Result} from "./components/result/Result";
@@ -23,7 +23,8 @@ function App() {
 
         <div className={"wrapper"}>
             <div className={"main"}>
-                <Settings startValue={startValue} maxValue={maxValue} setValues={setValues} setError={setError}/>
+                <Settings startValue={startValue} maxValue={maxValue} setValues={setValues}
+                          setError={setError}  error={error}/>
             </div>
             <div className={"main"}>
                 <Result value={value} maxValue={maxValue} startValue={startValue} error={error}

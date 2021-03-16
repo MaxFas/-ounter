@@ -114,26 +114,20 @@
 
 }
 
-.maxValue {
-  font-size: 45px;
-  color: aquamarine;
-  margin-left: 40px;
-}
-
-.startValue {
+.Value {
   margin-left: 40px;
   font-size: 45px;
   color: aquamarine;
 }
 
-.maxValue input {
+.ValueInput {
   height: 60px;
   font-size: 30px;
   text-align: center;
-}
 
-.startValue input {
+}.ValueErrorInput {
   height: 60px;
   font-size: 30px;
   text-align: center;
+  background-color: #ff6778;
 }

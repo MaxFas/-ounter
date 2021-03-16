@@ -8,6 +8,7 @@ export type ResultType = {
     startValue: number
     error: string
     changeValue: (newValue: number) => void
+
 }
 
 export function Result(props: ResultType) {
