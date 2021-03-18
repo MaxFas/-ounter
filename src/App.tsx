@@ -6,9 +6,10 @@ import {Result} from "./components/result/Result";
 
 function App() {
     const [value, setValue] = useState<number>(0)
-    let [maxValue, setMaxValue] = useState<number>(0)
-    let [startValue, setStartValue] = useState<number>(0)
-    let [error, setError] = useState<string>('')
+    const [maxValue, setMaxValue] = useState<number>(0)
+    const [startValue, setStartValue] = useState<number>(0)
+    const [errorMin, setErrorMin] = useState<boolean>(false)
+    const [errorMax, setErrorMax] = useState<boolean>(false)
 
     function changeValue(newValue: number) {
         setValue(newValue)
@@ -24,11 +25,11 @@ function App() {
         <div className={"wrapper"}>
             <div className={"main"}>
                 <Settings startValue={startValue} maxValue={maxValue} setValues={setValues}
-                          setError={setError}  error={error}/>
+                          setErrorMin={setErrorMin} errorMin={errorMin} setErrorMax={setErrorMax} errorMax={errorMax}/>
             </div>
             <div className={"main"}>
-                <Result value={value} maxValue={maxValue} startValue={startValue} error={error}
-                        changeValue={changeValue}/>
+                <Result value={value} maxValue={maxValue} startValue={startValue} errorMin={errorMin}
+                        errorMax={errorMax} changeValue={changeValue}/>
             </div>
         </div>
     );

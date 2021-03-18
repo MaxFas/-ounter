@@ -6,14 +6,18 @@ type PropsType = {
     startValue: number
     maxValue: number
     setValues: (start: number, max: number) => void
-    setError: (value: string) => void
-    error: string
+    setErrorMin: (value: boolean) => void
+    errorMin: boolean
+    setErrorMax: (value: boolean)=>void
+    errorMax: boolean
 
 }
 export const Settings = (props: PropsType)=> {
-
     let [max, setMax] = useState<number>(props.maxValue)
     let [min, setMin] = useState<number>(props.startValue)
+
+    const setValues = () => {
+        props.setValues(min, max)}
 
     useEffect(()=> {
         let valueAsString = localStorage.getItem('maxValue')
@@ -36,35 +40,37 @@ export const Settings = (props: PropsType)=> {
 
     const handleChangeMin = (value: number) => {
         if(value < 0) {
-           props.setError('Incorrect value')
+           props.setErrorMin(true)
         }else if (value === max) {
-            props.setError ('Incorrect value')
+            props.setErrorMin (true)
+            props.setErrorMax (true)
         }else if (value>max) {
-            props.setError ('Incorrect value')
+            props.setErrorMin (true)
+            props.setErrorMax (false)
         }else {
-            props.setError('')
+            props.setErrorMax (false)
+            props.setErrorMin(false)
         }
-        setMin(value)
-    }
+        setMin(value)}
     const handleChangeMax = (value: number) => {
         if(value<0){
-            props.setError ('Incorrect value')
+            props.setErrorMax (true)
         } else if (value === min) {
-            props.setError ('Incorrect value')
+            props.setErrorMax (true)
+            props.setErrorMin (true)
         } else if (value<min) {
-            props.setError ('Incorrect value')
-        } else {
-            props.setError('')
-        } setMax(value)
-    }
-    const setValues = () => {
-        props.setValues(min, max)
-    }
+            props.setErrorMax (true)
+            props.setErrorMin (false)
 
+        } else {
+            props.setErrorMax(false)
+            props.setErrorMin (false)
+        }
+        setMax(value)}
 
     return <div>
-        <SetValues error={props.error} findMaxValue={handleChangeMax}
+        <SetValues errorMin={props.errorMin} errorMax={props.errorMax} findMaxValue={handleChangeMax}
                    findStartValue={handleChangeMin} startValue={min} maxValue={max}/>
-        <ButtonSet onClick={setValues} />
+        <ButtonSet errorMin={props.errorMin} errorMax={props.errorMax} onClick={setValues} />
     </div>
 }

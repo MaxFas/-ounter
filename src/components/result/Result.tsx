@@ -6,15 +6,15 @@ export type ResultType = {
     value: number
     maxValue: number
     startValue: number
-    error: string
+    errorMin: boolean
+    errorMax: boolean
     changeValue: (newValue: number) => void
-
 }
 
 export function Result(props: ResultType) {
         return (
         <div>
-            <Display value={props.value} maxValue={props.maxValue} error={props.error}/>
+            <Display value={props.value} maxValue={props.maxValue} errorMin={props.errorMin} errorMax={props.errorMax}/>
             <Buttons value={props.value} changeValue={props.changeValue} startValue={props.startValue} maxValue={props.maxValue}/>
         </div>
         )

@@ -4,6 +4,8 @@ import '../../../App.css';
 
 type ButtonSetType = {
     onClick: () => void
+    errorMin: boolean
+    errorMax: boolean
 }
 
 export function ButtonSet(props: ButtonSetType) {
@@ -12,7 +14,7 @@ export function ButtonSet(props: ButtonSetType) {
 
     return (
         <div className={'buttonsPanel'}>
-            <button className={'buttonSet'} onClick={props.onClick}>SET</button>
+            <button disabled={props.errorMin||props.errorMax} className={'buttonSet'} onClick={props.onClick}>SET</button>
         </div>
     )
 }
